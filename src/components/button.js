@@ -9,7 +9,15 @@ class button extends Component {
             active: true
         }
     }
-    change(){
+
+    componentDidMount() {
+        fetch('http://localhost:8000', {method: 'GET'})
+            .then((res) => {
+                alert(res.data)
+            })
+    }
+
+    change() {
         this.setState({
             active: !this.state.active
         })
@@ -17,8 +25,11 @@ class button extends Component {
 
     render() {
         return (
-            <button onClick={this.props.change}  className={this.state.active?'btn':'active'}>{this.state.active?'off':'on'}{this.props.status}</button>
+            <button onClick={this.change.bind(this)}
+                    className={this.state.active ? 'btn' : 'active'}>{this.state.active ? 'off' : 'on'}{this.props.status}</button>
+            // <button onClick={this.props.change}  className={this.state.active?'btn':'active'}>{this.state.active?'off':'on'}{this.props.status}</button>
         )
+
     }
 }
 
