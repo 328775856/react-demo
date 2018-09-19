@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Count from './components/count.js';
 import ButtonNew from './components/button.js';
+import r from './components/routerDemo.js';
 
 class App extends Component {
     constructor(props) {
@@ -62,6 +63,7 @@ class App extends Component {
                 </p>
                 <Count childrenMinus={this.Cminus.bind(this)} count={this.state.count}/>
                 <ButtonNew change={this.avtive.bind(this)}  status={this.state.status}></ButtonNew>
+                <r></r>
             </div>
         );
     }
